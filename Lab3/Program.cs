@@ -6,6 +6,7 @@ namespace Lab3
     {
         static void Main(string[] args)
         {
+            bool isLooping = true;
             do
             {
                 Console.Write("Please enter a number between 1 and 100: ");
@@ -31,15 +32,31 @@ namespace Lab3
                     Console.WriteLine($"{userEntry} Even");
                 }
 
-                if (userEntry >= 60 && userEntry % 2 == 1)
+                do
                 {
-                    Console.WriteLine($"{userEntry} Odd");
-                }
+                    Console.Write("Continue? (y/n) ");
+                    string userContinueInput = Console.ReadLine();
 
-                Console.Write("Continue? (y/n) ");
-                char userContinue = Console.ReadLine();
+                    if (userContinueInput == "y")
+                    {
+                        Console.Clear();
+                        break;
+                    }
 
-            } while (userContinue == 'y');
+                    else if (userContinueInput == "n")
+                    {
+                        isLooping = false;
+                        break;
+                    }
+
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please respond with either a y or n");
+                    }
+                } while (true);
+                
+            } while (isLooping);
 
         }
     }
